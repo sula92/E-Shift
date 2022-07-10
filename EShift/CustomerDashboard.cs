@@ -16,5 +16,26 @@ namespace EShift
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CustomerProfile customerProfile = new CustomerProfile();
+            customerProfile.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CustomerJob customerJob = new CustomerJob();
+            customerJob.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CustomerJobStatus customerJobStatus = new CustomerJobStatus();
+            customerJobStatus.Show();
+        }
     }
 }

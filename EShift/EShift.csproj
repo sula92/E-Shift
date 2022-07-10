@@ -101,6 +101,24 @@
     <Compile Include="CustomerDashboard.Designer.cs">
       <DependentUpon>CustomerDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerJob.Designer.cs">
+      <DependentUpon>CustomerJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerJobStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerJobStatus.Designer.cs">
+      <DependentUpon>CustomerJobStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerProfile.Designer.cs">
+      <DependentUpon>CustomerProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="dao\CRUDUtil.cs" />
     <Compile Include="dao\UserDashboard.cs">
       <SubType>Form</SubType>
@@ -108,11 +126,53 @@
     <Compile Include="dao\UserDashboard.Designer.cs">
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageContainer.Designer.cs">
+      <DependentUpon>ManageContainer.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManageCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManageCustomer.Designer.cs">
       <DependentUpon>ManageCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEmployee.Designer.cs">
+      <DependentUpon>ManageEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageJob.Designer.cs">
+      <DependentUpon>ManageJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageLorry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageLorry.Designer.cs">
+      <DependentUpon>ManageLorry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProduct.Designer.cs">
+      <DependentUpon>ManageProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageUnit.Designer.cs">
+      <DependentUpon>ManageUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageUser.Designer.cs">
+      <DependentUpon>ManageUser.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Container.cs" />
     <Compile Include="model\Customer.cs" />
@@ -141,11 +201,32 @@
     <EmbeddedResource Include="dao\UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageContainer.resx">
+      <DependentUpon>ManageContainer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManageCustomer.resx">
       <DependentUpon>ManageCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEmployee.resx">
+      <DependentUpon>ManageEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageJob.resx">
+      <DependentUpon>ManageJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageLorry.resx">
+      <DependentUpon>ManageLorry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProduct.resx">
+      <DependentUpon>ManageProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageUnit.resx">
+      <DependentUpon>ManageUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageUser.resx">
+      <DependentUpon>ManageUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

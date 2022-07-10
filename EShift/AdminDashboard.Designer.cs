@@ -56,6 +56,7 @@
             this.btnEmpMngt.TabIndex = 1;
             this.btnEmpMngt.Text = "Employee Management";
             this.btnEmpMngt.UseVisualStyleBackColor = true;
+            this.btnEmpMngt.Click += new System.EventHandler(this.btnEmpMngt_Click);
             // 
             // button2
             // 
@@ -65,6 +66,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Lorry Management";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnUserMngt
             // 
@@ -74,6 +76,7 @@
             this.btnUserMngt.TabIndex = 3;
             this.btnUserMngt.Text = "User Management";
             this.btnUserMngt.UseVisualStyleBackColor = true;
+            this.btnUserMngt.Click += new System.EventHandler(this.btnUserMngt_Click);
             // 
             // btnJobMngt
             // 
@@ -83,6 +86,7 @@
             this.btnJobMngt.TabIndex = 4;
             this.btnJobMngt.Text = "Job Management";
             this.btnJobMngt.UseVisualStyleBackColor = true;
+            this.btnJobMngt.Click += new System.EventHandler(this.btnJobMngt_Click);
             // 
             // button1
             // 
@@ -92,6 +96,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Containern Management";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -101,6 +106,7 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "Product Management";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -110,6 +116,7 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "Unit Management";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // AdminDashboard
             // 
