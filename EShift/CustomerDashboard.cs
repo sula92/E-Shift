@@ -27,8 +27,8 @@ namespace EShift
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CustomerJob customerJob = new CustomerJob();
-            customerJob.Show();
+            CustomerJobRequest customerJobRequest = new CustomerJobRequest();
+            customerJobRequest.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -36,6 +36,13 @@ namespace EShift
             this.Hide();
             CustomerJobStatus customerJobStatus = new CustomerJobStatus();
             customerJobStatus.Show();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.Show();
         }
     }
 }

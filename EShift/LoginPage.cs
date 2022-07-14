@@ -14,6 +14,11 @@ namespace EShift
 {
     public partial class Login : Form
     {
+        public static String customerId;
+        public static String employeeId;
+
+        MySqlConnection connection = DBConnection.getInstance().getConnection();
+
         public Login()
         {
             InitializeComponent();
@@ -26,23 +31,77 @@ namespace EShift
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            AdminDashboard adminDBoard = new AdminDashboard();
-            adminDBoard.Show();
+            if (connection!=null)
+            {
+                connection.Close();
+            }
+
+            using (MySqlCommand cmd = new MySqlCommand("select * From user  WHERE `user_name`  = '" + txtUserName.Text + "' AND  `password`  = '" + txtPassword.Text + "'", connection))
+            {
+                connection.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                Boolean b = reader.Read();
+                if (!b)
+                {
+                    MessageBox.Show("access denied! Please Register");
+                }
+
+
+                try
+                {
+                    while (b)
+                    {
+
+                        String unm = reader["user_name"].ToString();
+                        String pwd = reader["password"].ToString();
+                        String role = reader["privilege"].ToString();
+                        String uid = reader["userId"].ToString();
+
+                        if (role == "admin")
+                        {
+                            employeeId = uid;
+
+                            this.Hide();
+                            AdminDashboard adminDBoard = new AdminDashboard();
+                            adminDBoard.Show();
+                        }
+                        else if (role == "customer")
+                        {
+                            customerId = uid;
+
+                            this.Hide();
+                            CustomerDashboard customerDashboard = new CustomerDashboard();
+                            customerDashboard.Show();
+                        }
+                        else if (unm == null || unm == "" || pwd == null || pwd == "")
+                        {
+                            MessageBox.Show("you dont have the access");
+                        }
+                        else
+                        {
+                            MessageBox.Show("access is pending");
+                        }
+
+                        break;
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("access denied");
+                }
+
+            }
+           
                 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
-            MySqlConnection connection=DBConnection.getInstance().getConnection();
-
-            // MySqlConnection connection =new MySqlConnection("DataSource ='localhost'; Database='eshift'; User ID='root'; Password='';");
-            MessageBox.Show(connection.ToString());
-            connection.Open();
-            Console.WriteLine(connection);
-            Console.ReadLine();
-
+            txtPassword.Text = "";
+            txtUserName.Text = "";
 
 
         }
@@ -50,6 +109,13 @@ namespace EShift
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            CustomerRegister customerRegister = new CustomerRegister();
+            customerRegister.Show();
         }
     }
 }

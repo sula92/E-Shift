@@ -16,5 +16,17 @@ namespace EShift
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CustomerDashboard customerDashboard = new CustomerDashboard();
+            customerDashboard.Show();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

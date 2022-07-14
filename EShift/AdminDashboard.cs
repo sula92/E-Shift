@@ -73,5 +73,12 @@ namespace EShift
             ManageUnit manageUnit = new ManageUnit();
             manageUnit.Show();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.Show();
+        }
     }
 }

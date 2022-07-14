@@ -23,5 +23,19 @@ namespace EShift
             AdminDashboard adminDashboard = new AdminDashboard();
             adminDashboard.Show();
         }
+
+        private void ManageUser_Load(object sender, EventArgs e)
+        {
+            List<String> months = new List<String>() { "A","B" };
+            foreach (string month in months)
+            {
+                comboPrivilege.Items.Add(month);
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
