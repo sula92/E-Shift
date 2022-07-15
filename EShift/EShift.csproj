@@ -216,6 +216,9 @@
     <EmbeddedResource Include="CustomerProfile.resx">
       <DependentUpon>CustomerProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerRegister.resx">
+      <DependentUpon>CustomerRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dao\UserDashboard.resx">
       <DependentUpon>UserDashboard.cs</DependentUpon>
     </EmbeddedResource>

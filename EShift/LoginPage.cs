@@ -108,7 +108,7 @@ namespace EShift
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            txtPassword.UseSystemPasswordChar = true;
         }
 
         private void button2_Click_1(object sender, EventArgs e)

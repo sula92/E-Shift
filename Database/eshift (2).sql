@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2022 at 09:08 PM
+-- Generation Time: Jul 15, 2022 at 09:03 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -63,7 +63,8 @@ INSERT INTO `customer` (`id`, `name`, `contact_number`, `email`, `address`) VALU
 ('C003', 'kdkd', '9490505', 'kfllflf', 'kglglg'),
 ('C004', 'kfkf', '305873', 'gdhdjjd', 'ndmmf'),
 ('C005', 'tyuu', '8687899', 'gjgjjkl', 'nmknkn'),
-('C006', 'jkkk', '6666666666', 'vvv@cvb.com', 'jhjjbjb');
+('C006', 'jkkk', '6666666666', 'vvv@cvb.com', 'jhjjbjb'),
+('C007', 'fjfk', '8888888888', 'ndn@gmail.com', 'ldldkl');
 
 -- --------------------------------------------------------
 
@@ -153,6 +154,15 @@ CREATE TABLE `request` (
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `request`
+--
+
+INSERT INTO `request` (`request_id`, `customer_id`, `product_inf`, `status`) VALUES
+('R001', 'C001', 'assd', 'pending'),
+('Req001', 'C001', 'dcdmnc 4, djncjnv 8', 'pending'),
+('Req002', 'C001', 'kfkf', 'approved');
+
 -- --------------------------------------------------------
 
 --
@@ -182,10 +192,18 @@ INSERT INTO `unit` (`id`, `container_id`, `lorry_id`, `driver_id`, `assistant_id
 
 CREATE TABLE `user` (
   `userId` varchar(255) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
   `privilege` varchar(255) DEFAULT NULL,
-  `employee_id` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`userId`, `user_name`, `privilege`, `password`) VALUES
+('C001', 'cus', 'customer', 'cus'),
+('EMP001', 'admin', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -247,8 +265,7 @@ ALTER TABLE `unit`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`userId`),
-  ADD KEY `FK1yao5y1albiyi7r6ktr0wkx47` (`employee_id`);
+  ADD PRIMARY KEY (`userId`);
 
 --
 -- Constraints for dumped tables
@@ -273,12 +290,6 @@ ALTER TABLE `product`
 ALTER TABLE `unit`
   ADD CONSTRAINT `FKb3yhr7pfqmp5wh6cw5d9bhcyl` FOREIGN KEY (`lorry_id`) REFERENCES `lorry` (`id`),
   ADD CONSTRAINT `FKjawf3vvqkcm9qdhjxw3irih33` FOREIGN KEY (`container_id`) REFERENCES `container` (`id`);
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `FK1yao5y1albiyi7r6ktr0wkx47` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
