@@ -16,6 +16,7 @@ namespace EShift
 
         private DataTable dt;
         private MySqlConnection connection = DBConnection.getInstance().getConnection();
+        private String jobId = ManageJob.jobId;
 
         public ManageProduct()
         {
@@ -56,7 +57,7 @@ namespace EShift
                 connection.Close();
             }
             DataTable dtCustomer = new DataTable();
-            using (MySqlCommand cmd = new MySqlCommand("select * From product", connection))
+            using (MySqlCommand cmd = new MySqlCommand("select * From product where `job_id`  = '" + jobId + "'", connection))
             {
                 connection.Open();
                 MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
@@ -67,11 +68,8 @@ namespace EShift
 
         private void clearAll()
         {
-
-            txtJobId.Clear();
             txtProductName.Clear();
             txtQuantity.Clear();            
-
             btnUpdate.Text = "Update";
         }
 
@@ -80,8 +78,8 @@ namespace EShift
             if (connection != null)
             {
                 connection.Close();
-            }           
-
+            }
+            
             if (btnUpdate.Text == "Update")
             {
 
@@ -104,6 +102,15 @@ namespace EShift
             }
             else
             {
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (txtProductName.Text == row.Cells["product_name"].Value.ToString())
+                    {
+                        MessageBox.Show("You cant duplicate the same product");
+                        return;
+                    }
+
+                }
 
                 connection.Open();
                 MySqlCommand com_customer = new MySqlCommand("insert into product (job_id,product_name,quantity) values ('" + txtJobId.Text + "','" +txtProductName.Text + "','" + txtQuantity.Text + "')", connection);
@@ -118,13 +125,14 @@ namespace EShift
                 }
                 else
                 {
-                    MessageBox.Show("Failed To Inser The Recpord...!");
+                    MessageBox.Show("Failed To Inser The Record...!");
                 }
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("HI");
             try
             {
                 if (connection != null)
@@ -132,9 +140,8 @@ namespace EShift
                     connection.Close();
                 }
                 connection.Open();
-                String jid = txtProductName.Text;
-                String pname = txtProductName.Text;
-                string deleteCmd = ("Delete from product where job_id='" + jid + "' AND product_name='" + pname + "' ");
+                
+                string deleteCmd = ("DELETE FROM `product` WHERE `product`.`job_id` = 'J002' AND `product`.`product_name` = 'www'");
                 MySqlCommand delete_cmd = new MySqlCommand(deleteCmd, connection);
 
                 int res_update = delete_cmd.ExecuteNonQuery();
@@ -159,20 +166,14 @@ namespace EShift
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
+
+            MessageBox.Show(dt.Rows[e.RowIndex].Field<int>(2).ToString());
                 txtJobId.Text = dt.Rows[e.RowIndex].Field<String>(0).ToString();
                 txtProductName.Text = dt.Rows[e.RowIndex].Field<String>(1).ToString();
                 txtQuantity.Text = dt.Rows[e.RowIndex].Field<int>(2).ToString();
 
                 btnUpdate.Text = "Update";
-                btnUpdate.Enabled = true;
-                btnDelete.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An Exception has occurred : {0}", ex.Message);
-            }
+                btnUpdate.Enabled = true;       
         }
 
         private void ManageProduct_Load(object sender, EventArgs e)
@@ -195,8 +196,14 @@ namespace EShift
 
             btnDelete.Enabled = false;
             btnUpdate.Enabled = false;
+            txtJobId.Text = jobId;
+            txtJobId.ReadOnly = true;
         }
 
-       
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("mxmxmxm");
+            
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace EShift
 {
     public partial class ManageJob : Form
     {
+        public static String jobId;
         private DataTable dt;
         private MySqlConnection connection = DBConnection.getInstance().getConnection();
 
@@ -21,6 +22,7 @@ namespace EShift
             InitializeComponent();
         }
 
+        //navigate to dashboard
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -28,6 +30,7 @@ namespace EShift
             adminDashboard.Show();
         }
 
+        //set initial property values
         private void ManageJob_Load(object sender, EventArgs e)
         {
             loadTableDta();
@@ -52,8 +55,40 @@ namespace EShift
 
             btnDelete.Enabled = false;
             btnUpdate.Enabled = false;
+
+            List<String> status = new List<String>() { "pending", "cancel", "approved","completed" };
+            foreach (string role in status)
+            {
+                cmbStatus.Items.Add(role);
+            }
+
+            if (connection != null)
+            {
+                connection.Close();
+            }
+
+            using (MySqlCommand cmd = new MySqlCommand("select * From unit ", connection))
+            {
+                cmbUID.Items.Add("");
+                connection.Open();
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+
+
+                    String uid = reader["id"].ToString();
+
+                    cmbUID.Items.Add(uid);
+
+                }
+
+                reader.Close();
+            }
         }
 
+        //load data to the table
         private void loadTableDta()
         {
             dt = GetCustomerList();
@@ -62,7 +97,7 @@ namespace EShift
 
 
         }
-
+        // fetch data from the db
         private DataTable GetCustomerList()
         {
             if (connection != null)
@@ -70,7 +105,7 @@ namespace EShift
                 connection.Close();
             }
             DataTable dtCustomer = new DataTable();
-            using (MySqlCommand cmd = new MySqlCommand("select id,date,starting_address,destination_address,customer_id,unit_id From job", connection))
+            using (MySqlCommand cmd = new MySqlCommand("select * From job", connection))
             {
                 connection.Open();
                 MySqlDataReader mySqlDataReader = cmd.ExecuteReader();
@@ -78,7 +113,7 @@ namespace EShift
             }
             return dtCustomer;
         }
-
+        //clear txt boxes
         private void clearAll()
         {
 
@@ -86,11 +121,10 @@ namespace EShift
             txtStartingAdd.Clear();
             txtId.Clear();
             txtCId.Clear();
-            txtUId.Clear();
-
-            
-
+            cmbUID.Text = "";
+            cmbStatus.Text = "pending";
             btnUpdate.Text = "Update";
+            dateTimePicker1.Value = DateTime.Now;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -98,6 +132,7 @@ namespace EShift
 
         }
 
+        //select table row
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -108,7 +143,10 @@ namespace EShift
                 txtDesAdd.Text = dt.Rows[e.RowIndex].Field<String>(2).ToString();
                 txtStartingAdd.Text = dt.Rows[e.RowIndex].Field<String>(3).ToString();
                 txtCId.Text = dt.Rows[e.RowIndex].Field<String>(4).ToString();
-                txtUId.Text = dt.Rows[e.RowIndex].Field<String>(5).ToString();
+                cmbUID.Text = dt.Rows[e.RowIndex].Field<String>(5).ToString();
+                cmbStatus.Text = dt.Rows[e.RowIndex].Field<String>(6).ToString();
+
+                jobId= dt.Rows[e.RowIndex].Field<String>(0).ToString();
 
                 btnUpdate.Text = "Update";
                 btnUpdate.Enabled = true;
@@ -119,7 +157,7 @@ namespace EShift
                 Console.WriteLine("An Exception has occurred : {0}", ex.Message);
             }
         }
-
+        //generate new id
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             int unitId;
@@ -154,8 +192,11 @@ namespace EShift
             txtId.Text = newunitId;
             btnUpdate.Text = "Save";
             loadTableDta();
+            cmbStatus.Text = "pending";
+            jobId = newunitId;
         }
 
+        //upadate the job
         private void button2_Click(object sender, EventArgs e)
         {
             if (connection != null)
@@ -169,7 +210,7 @@ namespace EShift
             {
 
                 connection.Open();
-                string updateCustomer = ("UPDATE `eshift`.`job` SET `customer_id`='" + txtCId.Text + "', `date`='" + dateTimePicker1.Value.ToString() + "',  `unit_id`='" + txtUId.Text + "', `starting_address`='" + txtStartingAdd.Text + "', `destination_address`='" + txtDesAdd.Text + "' WHERE `id`  = '" + txtId.Text + "' ");
+                string updateCustomer = ("UPDATE `eshift`.`job` SET `customer_id`='" + txtCId.Text + "', `date`='" + dateTimePicker1.Value.ToString() + "',  `unit_id`='" + cmbUID.Text + "', `starting_address`='" + txtStartingAdd.Text + "', `destination_address`='" + txtDesAdd.Text + "', `status`='" + cmbStatus.Text + "' WHERE `id`  = '" + txtId.Text + "' ");
                 MySqlCommand update_cmd = new MySqlCommand(updateCustomer, connection);
                 int res_update = update_cmd.ExecuteNonQuery();
                 connection.Close();
@@ -189,7 +230,7 @@ namespace EShift
             {   
 
                 connection.Open();
-                MySqlCommand com_customer = new MySqlCommand("insert into job (id,date,destination_address,starting_address,customer_id,unit_id) values ('" + txtId.Text + "','" + dateTimePicker1.Value.ToString() + "','" + txtDesAdd.Text + "','" + txtStartingAdd.Text + "','" + txtCId.Text + "','" + txtUId.Text + "')", connection);
+                MySqlCommand com_customer = new MySqlCommand("insert into job (id,date,destination_address,starting_address,customer_id,unit_id,status) values ('" + txtId.Text + "','" + dateTimePicker1.Value.ToString() + "','" + txtDesAdd.Text + "','" + txtStartingAdd.Text + "','" + txtCId.Text + "','" + cmbUID.Text + "','" + cmbStatus.Text + "')", connection);
                 int resSave = com_customer.ExecuteNonQuery();
                 connection.Close();
                 if (resSave == 1)
@@ -204,8 +245,9 @@ namespace EShift
                     MessageBox.Show("Failed To Inser The Recpord...!");
                 }
             }
+            loadTableDta();
         }
-
+        //delete job
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -236,6 +278,46 @@ namespace EShift
             catch (Exception ex)
             {
                 Console.WriteLine("An Exception has occurred : {0}", ex.Message);
+            }
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbFromDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbToDate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbStatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCustomerFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (txtId.Text != "")
+            {
+                txtId.Text = jobId;
+                ManageProduct manageProduct = new ManageProduct();
+                this.Close();
+                manageProduct.Show();
+            }
+            else
+            {
+                MessageBox.Show("Job ID is Empty");
             }
         }
     }

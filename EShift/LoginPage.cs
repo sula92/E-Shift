@@ -22,6 +22,7 @@ namespace EShift
         public Login()
         {
             InitializeComponent();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace EShift
 
         }
 
+        //verify the user
         private void button1_Click(object sender, EventArgs e)
         {
             if (connection!=null)
@@ -92,12 +94,17 @@ namespace EShift
                 {
                     MessageBox.Show("access denied");
                 }
+                finally
+                {
+                    connection.Close();
+                    reader.Close();
+                }
 
             }
            
                 
         }
-
+        //clear the texts
         private void button2_Click(object sender, EventArgs e)
         {
             txtPassword.Text = "";
@@ -106,11 +113,15 @@ namespace EShift
 
         }
 
+        //set text field as a password field
         private void Form1_Load(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = true;
+            this.BackgroundImageLayout= ImageLayout.Stretch;
+
         }
 
+        //navigate to customer registor
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.Hide();

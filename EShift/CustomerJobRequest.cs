@@ -16,6 +16,7 @@ namespace EShift
 
         private DataTable dt;
         private MySqlConnection connection = DBConnection.getInstance().getConnection();
+        private String cusid = Login.customerId;
 
         public CustomerJobRequest()
         {
@@ -79,7 +80,7 @@ namespace EShift
             {
 
                 connection.Open();
-                string updateCustomer = ("UPDATE `eshift`.`request` SET `customer_id`='" + txtCustomerId.Text + "'  `product_inf`='" + txtProductInfo.Text + "' WHERE `id`  = '" + txtRequestId.Text + "' ");
+                string updateCustomer = ("UPDATE `eshift`.`request` SET `customer_id`='" + cusid + "'  `product_inf`='" + txtProductInfo.Text + "' WHERE `id`  = '" + txtRequestId.Text + "' ");
                 MySqlCommand update_cmd = new MySqlCommand(updateCustomer, connection);
                 int res_update = update_cmd.ExecuteNonQuery();
                 connection.Close();
@@ -131,7 +132,7 @@ namespace EShift
                 btnDelete.Text = "Cancel";
 
                 connection.Open();
-                string updateCmd = ("UPDATE `eshift`.`request` SET `status`='" + "cancel" + "' WHERE `id`  = '" + txtRequestId.Text + "' ");
+                string updateCmd = ("UPDATE `eshift`.`request` SET `status`='" + "cancel" + "' WHERE `request_id`  = '" + txtRequestId.Text + "' ");
                 MySqlCommand update_cmd = new MySqlCommand(updateCmd, connection);
                 int res_update = update_cmd.ExecuteNonQuery();
                 connection.Close();
@@ -139,11 +140,11 @@ namespace EShift
                 {
                     loadTableDta();
                     dataGridView1.Refresh();
-                    MessageBox.Show("Requestr updated sucessfully...");
+                    MessageBox.Show("Job Request updated sucessfully...");
                 }
                 else
                 {
-                    MessageBox.Show("Failed to update record....");
+                    MessageBox.Show("Failed to update the Job Request....");
                 }
 
             }
@@ -171,6 +172,7 @@ namespace EShift
 
         private void CustomerJobRequest_Load(object sender, EventArgs e)
         {
+            txtCustomerId.Text = cusid;
             loadTableDta();
             dataGridView1.Columns[0].DefaultCellStyle.ForeColor = Color.Blue;
             dataGridView1.Columns[1].DefaultCellStyle.ForeColor = Color.Blue;

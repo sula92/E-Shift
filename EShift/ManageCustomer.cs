@@ -15,6 +15,7 @@ namespace EShift
     public partial class ManageCustomer : Form
     {
         private DataTable dt;
+        //create connection object
         private MySqlConnection connection = DBConnection.getInstance().getConnection();
 
         public ManageCustomer()
@@ -24,6 +25,7 @@ namespace EShift
            
         }
 
+        //Back to admin dashboard
         private void button1_Click(object sender, EventArgs e)
         {
             if (connection != null)
@@ -36,6 +38,7 @@ namespace EShift
 
         }
 
+        //clear the form elements
         private void clearAll()
         {
             txtAddress.Clear();
@@ -47,6 +50,7 @@ namespace EShift
             btnUpdate.Text = "Update";
         }
 
+        //set initial property values when form getting loadded
         private void manageCustomer_Load(object sender, EventArgs e)
         {
            
@@ -73,6 +77,7 @@ namespace EShift
 
         }
 
+        //load data to the grdview
         private void loadTableDta()
         {
             dt = GetCustomerList();
@@ -82,6 +87,7 @@ namespace EShift
 
         }
 
+        //fetch data from the database
         private DataTable GetCustomerList()
         {
             if (connection != null)
@@ -98,6 +104,7 @@ namespace EShift
                 return dtCustomer;
         }
 
+        //copying customer info to form elements when click on a row
         private void dataGridViewCustomer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -119,6 +126,7 @@ namespace EShift
 
         }
 
+        //Inserting and updating the customer
         private void button1_Click_1(object sender, EventArgs e)
         {
             Regex rx1 = new Regex(@"\d{10}");
@@ -176,10 +184,10 @@ namespace EShift
                         MessageBox.Show("Failed To Inser The Recpord...!");
                     }
                 }
-               
-           
+             
         }
 
+        //delete the data based on a particular id
         private void button1_Click_2(object sender, EventArgs e)
         {
             try
@@ -214,6 +222,7 @@ namespace EShift
             
         }
 
+        //Generate a new id to Add a new customer
         private void btnAddNew_Click(object sender, EventArgs e)
         {           
             int cutomerId= int.Parse(dt.Rows[dataGridViewCustomer.RowCount-1]

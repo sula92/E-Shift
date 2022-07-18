@@ -16,28 +16,28 @@ namespace EShift
         {
             InitializeComponent();
         }
-
+        //navigate to cutomer profile
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
             CustomerProfile customerProfile = new CustomerProfile();
             customerProfile.Show();
         }
-
+        //navigate to cutomer job request
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
             CustomerJobRequest customerJobRequest = new CustomerJobRequest();
             customerJobRequest.Show();
         }
-
+        //navigate to cutomer job status
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
             CustomerJobStatus customerJobStatus = new CustomerJobStatus();
             customerJobStatus.Show();
         }
-
+        //navigate to login
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
