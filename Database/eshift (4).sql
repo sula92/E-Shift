@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2022 at 09:03 AM
+-- Generation Time: Jul 20, 2022 at 05:49 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -38,7 +38,7 @@ CREATE TABLE `container` (
 
 INSERT INTO `container` (`id`, `max_weight`) VALUES
 ('CON001', '50KG'),
-('CON002', '67Kg');
+('CON003', '78KG');
 
 -- --------------------------------------------------------
 
@@ -59,12 +59,14 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `contact_number`, `email`, `address`) VALUES
-('C001', 'xxx', '123456', 'sula@dd.com', 'jfjfj 05A, nfnn'),
+('C001', 'xxx', '1234567890', 'sula@dd.com', 'jfjfj 05A, nfnn'),
 ('C003', 'kdkd', '9490505', 'kfllflf', 'kglglg'),
 ('C004', 'kfkf', '305873', 'gdhdjjd', 'ndmmf'),
 ('C005', 'tyuu', '8687899', 'gjgjjkl', 'nmknkn'),
 ('C006', 'jkkk', '6666666666', 'vvv@cvb.com', 'jhjjbjb'),
-('C007', 'fjfk', '8888888888', 'ndn@gmail.com', 'ldldkl');
+('C007', 'fjfk', '8888888888', 'ndn@gmail.com', 'ldldkl'),
+('C008', 'bhbvj', '8888888888', 'xxx@gmail.com', 'hjnjm,mk'),
+('C009', 'qwe', '1234567890', 'mme@gmail.com', 'nfnfn');
 
 -- --------------------------------------------------------
 
@@ -99,16 +101,18 @@ CREATE TABLE `job` (
   `destination_address` varchar(255) DEFAULT NULL,
   `starting_address` varchar(255) DEFAULT NULL,
   `customer_id` varchar(255) DEFAULT NULL,
-  `unit_id` varchar(255) NOT NULL
+  `unit_id` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `job`
 --
 
-INSERT INTO `job` (`id`, `date`, `destination_address`, `starting_address`, `customer_id`, `unit_id`) VALUES
-('J001', '2022-07-13', ',flf,fm', 'jfjjf', 'C001', 'U001'),
-('J002', '7/12/2022 7:11:58 PM', 'xxxxx', 'bbbbb', 'C001', 'U001');
+INSERT INTO `job` (`id`, `date`, `destination_address`, `starting_address`, `customer_id`, `unit_id`, `status`) VALUES
+('J001', '2022-07-13', ',flf,fm', 'jfjjf', 'C001', 'U001', 'pending'),
+('J002', '7/12/2022 7:11:58 PM', 'xxxxx', 'xxx', 'C001', 'U001', 'pending'),
+('J003', '7/18/2022 5:38:18 PM', 'mdmf', 'kvkv', 'C001', 'U001', 'pending');
 
 -- --------------------------------------------------------
 
@@ -141,6 +145,14 @@ CREATE TABLE `product` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`job_id`, `product_name`, `quantity`) VALUES
+('J002', 'b b ', 10),
+('J002', 'TV', 9);
+
 -- --------------------------------------------------------
 
 --
@@ -160,8 +172,8 @@ CREATE TABLE `request` (
 
 INSERT INTO `request` (`request_id`, `customer_id`, `product_inf`, `status`) VALUES
 ('R001', 'C001', 'assd', 'pending'),
-('Req001', 'C001', 'dcdmnc 4, djncjnv 8', 'pending'),
-('Req002', 'C001', 'kfkf', 'approved');
+('R002', 'C001', 'kfkf', 'approved'),
+('R003', 'C001', 'dcdmnc 4, djncjnv 8', 'cancel');
 
 -- --------------------------------------------------------
 
