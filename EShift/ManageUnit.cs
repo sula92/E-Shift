@@ -177,9 +177,9 @@ namespace EShift
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
+        {          
             int unitId;
-            if (dataGridViewUnit.RowCount - 1 <= 0)
+            if (dataGridViewUnit.RowCount <= 0)
             {
                 unitId = 000;
             }

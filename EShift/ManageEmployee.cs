@@ -97,7 +97,7 @@ namespace EShift
                 {
                     loadTableDta();
                     dataGridView1.Refresh();
-                    MessageBox.Show("Customer updated sucessfully...");
+                    MessageBox.Show("Employee updated sucessfully...");
                 }
                 else
                 {
@@ -170,7 +170,7 @@ namespace EShift
         private void btnAddNew_Click(object sender, EventArgs e)
         {
             int unitId;
-            if (dataGridView1.RowCount - 1 <= 0)
+            if (dataGridView1.RowCount <= 0)
             {
                 unitId = 000;
             }
@@ -233,6 +233,22 @@ namespace EShift
             catch (Exception ex)
             {
                 Console.WriteLine("An Exception has occurred : {0}", ex.Message);
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            PictureBox p = sender as PictureBox;
+            if (p!=null)
+            {
+                openFileDialog.Filter = "(*.jpg;*.jpeg;*.bmp;)| *.jpg; *.jpeg; *.bmp; * ";
+                if (openFileDialog.ShowDialog()==DialogResult.OK)
+                {
+                    p.Image = Image.FromFile(openFileDialog.FileName);
+                    String path = p.ImageLocation;
+                    MessageBox.Show(path);
+                }
             }
         }
     }

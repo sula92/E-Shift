@@ -195,6 +195,12 @@
     <Compile Include="model\Product.cs" />
     <Compile Include="model\Unit.cs" />
     <Compile Include="model\User.cs" />
+    <Compile Include="ReportManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportManagement.Designer.cs">
+      <DependentUpon>ReportManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="util\DBConnection.cs" />
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
@@ -258,6 +264,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReportManagement.resx">
+      <DependentUpon>ReportManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -50,10 +50,11 @@ namespace EShift
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 
+
             btnDelete.Enabled = false;
             btnUpdate.Enabled = false;
 
-
+            txtPassword.UseSystemPasswordChar = true;
 
             List<String> roles = new List<String>() { "admin","customer","denied" };
             foreach (string role in roles)
@@ -108,8 +109,7 @@ namespace EShift
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-            {
-               
+            {              
                 txtUserName.Text = dt.Rows[e.RowIndex].Field<String>(1).ToString();
                 comboUserId.Text= dt.Rows[e.RowIndex].Field<String>(0).ToString();
                 comboPrivilege.Text= dt.Rows[e.RowIndex].Field<String>(2).ToString();
@@ -206,7 +206,7 @@ namespace EShift
             {
 
                 connection.Open();
-                string updateCustomer = ("UPDATE `eshift`.`user` SET `user_name`='" + txtPassword.Text + "', `privilege`='" + comboPrivilege.Text + "',  `password`='" + txtPassword.Text + "' WHERE `id`  = '" + comboUserId.Text + "' ");
+                string updateCustomer = ("UPDATE `eshift`.`user` SET `user_name`='" + txtUserName.Text + "', `privilege`='" + comboPrivilege.Text + "',  `password`='" + txtPassword.Text + "' WHERE `id`  = '" + comboUserId.Text + "' ");
                 MySqlCommand update_cmd = new MySqlCommand(updateCustomer, connection);
                 int res_update = update_cmd.ExecuteNonQuery();
                 connection.Close();
@@ -238,9 +238,20 @@ namespace EShift
                 }
                 else
                 {
-                    MessageBox.Show("Failed To Inser The Recpord...!");
+                    MessageBox.Show("Failed To Insert The Record...!");
                 }
             }
+        }
+
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            btnUpdate.Text = "Save";
+            txtPassword.Text = "";
+            txtUserName.Text = "";
+            comboPrivilege.Text = "";
+            comboUserId.Text = "";
+            btnDelete.Enabled = false;
+            dataGridView1.ClearSelection();
         }
     }
 }
