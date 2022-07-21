@@ -37,106 +37,136 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // customerMngt
             // 
+            this.customerMngt.BackColor = System.Drawing.Color.Blue;
             this.customerMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerMngt.Location = new System.Drawing.Point(97, 94);
+            this.customerMngt.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.customerMngt.Location = new System.Drawing.Point(74, 59);
             this.customerMngt.Name = "customerMngt";
-            this.customerMngt.Size = new System.Drawing.Size(100, 85);
+            this.customerMngt.Size = new System.Drawing.Size(123, 50);
             this.customerMngt.TabIndex = 0;
             this.customerMngt.Text = "Customer Management";
-            this.customerMngt.UseVisualStyleBackColor = true;
+            this.customerMngt.UseVisualStyleBackColor = false;
             this.customerMngt.Click += new System.EventHandler(this.customerMngt_Click);
             // 
             // btnEmpMngt
             // 
+            this.btnEmpMngt.BackColor = System.Drawing.Color.DarkBlue;
             this.btnEmpMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmpMngt.Location = new System.Drawing.Point(259, 94);
+            this.btnEmpMngt.ForeColor = System.Drawing.Color.Yellow;
+            this.btnEmpMngt.Location = new System.Drawing.Point(249, 59);
             this.btnEmpMngt.Name = "btnEmpMngt";
-            this.btnEmpMngt.Size = new System.Drawing.Size(104, 85);
+            this.btnEmpMngt.Size = new System.Drawing.Size(123, 50);
             this.btnEmpMngt.TabIndex = 1;
             this.btnEmpMngt.Text = "Employee Management";
-            this.btnEmpMngt.UseVisualStyleBackColor = true;
+            this.btnEmpMngt.UseVisualStyleBackColor = false;
             this.btnEmpMngt.Click += new System.EventHandler(this.btnEmpMngt_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Blue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(424, 94);
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(424, 59);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 85);
+            this.button2.Size = new System.Drawing.Size(121, 50);
             this.button2.TabIndex = 2;
             this.button2.Text = "Lorry Management";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnUserMngt
             // 
+            this.btnUserMngt.BackColor = System.Drawing.Color.DarkBlue;
             this.btnUserMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserMngt.Location = new System.Drawing.Point(97, 245);
+            this.btnUserMngt.ForeColor = System.Drawing.Color.Yellow;
+            this.btnUserMngt.Location = new System.Drawing.Point(74, 159);
             this.btnUserMngt.Name = "btnUserMngt";
-            this.btnUserMngt.Size = new System.Drawing.Size(100, 83);
+            this.btnUserMngt.Size = new System.Drawing.Size(123, 51);
             this.btnUserMngt.TabIndex = 3;
             this.btnUserMngt.Text = "User Management";
-            this.btnUserMngt.UseVisualStyleBackColor = true;
+            this.btnUserMngt.UseVisualStyleBackColor = false;
             this.btnUserMngt.Click += new System.EventHandler(this.btnUserMngt_Click);
             // 
             // btnJobMngt
             // 
+            this.btnJobMngt.BackColor = System.Drawing.Color.Blue;
             this.btnJobMngt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJobMngt.Location = new System.Drawing.Point(259, 249);
+            this.btnJobMngt.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnJobMngt.Location = new System.Drawing.Point(249, 159);
             this.btnJobMngt.Name = "btnJobMngt";
-            this.btnJobMngt.Size = new System.Drawing.Size(104, 83);
+            this.btnJobMngt.Size = new System.Drawing.Size(123, 51);
             this.btnJobMngt.TabIndex = 4;
             this.btnJobMngt.Text = "Job Management";
-            this.btnJobMngt.UseVisualStyleBackColor = true;
+            this.btnJobMngt.UseVisualStyleBackColor = false;
             this.btnJobMngt.Click += new System.EventHandler(this.btnJobMngt_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DarkBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(424, 247);
+            this.button1.ForeColor = System.Drawing.Color.Yellow;
+            this.button1.Location = new System.Drawing.Point(424, 159);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 87);
+            this.button1.Size = new System.Drawing.Size(121, 51);
             this.button1.TabIndex = 5;
             this.button1.Text = "Containern Management";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.DarkBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(574, 94);
+            this.button3.ForeColor = System.Drawing.Color.Yellow;
+            this.button3.Location = new System.Drawing.Point(607, 59);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(107, 85);
+            this.button3.Size = new System.Drawing.Size(116, 50);
             this.button3.TabIndex = 6;
             this.button3.Text = "Report Management";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Blue;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(574, 245);
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(607, 159);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(112, 90);
+            this.button4.Size = new System.Drawing.Size(116, 51);
             this.button4.TabIndex = 7;
             this.button4.Text = "Unit Management";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.Color.Chartreuse;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.button5.Location = new System.Drawing.Point(714, 3);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 8;
             this.button5.Text = "Back";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Freestyle Script", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(365, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 25);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "E-SHIFT";
             // 
             // AdminDashboard
             // 
@@ -144,6 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -156,6 +187,7 @@
             this.Name = "AdminDashboard";
             this.Text = "AdminDashboard";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -170,5 +202,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
     }
 }

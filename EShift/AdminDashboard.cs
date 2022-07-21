@@ -42,8 +42,8 @@ namespace EShift
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            ManageProduct mngProduct = new ManageProduct();
-            mngProduct.Show();
+            ReportManagement reportManagement = new ReportManagement();
+            reportManagement.Show();
         }
         //navigate to user management
         private void btnUserMngt_Click(object sender, EventArgs e)
