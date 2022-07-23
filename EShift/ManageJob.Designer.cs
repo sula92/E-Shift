@@ -30,6 +30,8 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.cmdRequest = new System.Windows.Forms.Panel();
+            this.cmbUID = new System.Windows.Forms.ComboBox();
+            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
@@ -44,27 +46,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbFromDate = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cmbToDate = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmbStatusFilter = new System.Windows.Forms.ComboBox();
-            this.cmbCustomerFilter = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.AddProduct = new System.Windows.Forms.Button();
-            this.cmbUID = new System.Windows.Forms.ComboBox();
+            this.cmbCustomerFilter = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.cmdRequest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -105,6 +94,22 @@
             this.cmdRequest.Name = "cmdRequest";
             this.cmdRequest.Size = new System.Drawing.Size(396, 499);
             this.cmdRequest.TabIndex = 1;
+            // 
+            // cmbUID
+            // 
+            this.cmbUID.FormattingEnabled = true;
+            this.cmbUID.Location = new System.Drawing.Point(295, 150);
+            this.cmbUID.Name = "cmbUID";
+            this.cmbUID.Size = new System.Drawing.Size(93, 21);
+            this.cmbUID.TabIndex = 7;
+            // 
+            // cmbStatus
+            // 
+            this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Location = new System.Drawing.Point(232, 100);
+            this.cmbStatus.Name = "cmbStatus";
+            this.cmbStatus.Size = new System.Drawing.Size(156, 21);
+            this.cmbStatus.TabIndex = 7;
             // 
             // btnDelete
             // 
@@ -249,6 +254,17 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "CUS_ID";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(183, 103);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(43, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Status";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -265,143 +281,12 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(413, 315);
+            this.dataGridView1.Location = new System.Drawing.Point(402, 216);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(566, 178);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // cmbStatus
-            // 
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(232, 100);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(156, 21);
-            this.cmbStatus.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(183, 103);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Status";
-            // 
-            // cmbFromDate
-            // 
-            this.cmbFromDate.FormattingEnabled = true;
-            this.cmbFromDate.Location = new System.Drawing.Point(14, 61);
-            this.cmbFromDate.Name = "cmbFromDate";
-            this.cmbFromDate.Size = new System.Drawing.Size(156, 21);
-            this.cmbFromDate.TabIndex = 7;
-            this.cmbFromDate.SelectedIndexChanged += new System.EventHandler(this.cmbFromDate_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(34, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(112, 16);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Filter By Status";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(336, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(134, 16);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Filter By Customer";
-            // 
-            // cmbToDate
-            // 
-            this.cmbToDate.FormattingEnabled = true;
-            this.cmbToDate.Location = new System.Drawing.Point(330, 61);
-            this.cmbToDate.Name = "cmbToDate";
-            this.cmbToDate.Size = new System.Drawing.Size(156, 21);
-            this.cmbToDate.TabIndex = 7;
-            this.cmbToDate.SelectedIndexChanged += new System.EventHandler(this.cmbToDate_SelectedIndexChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(196, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 16);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Filter By Date";
-            // 
-            // cmbStatusFilter
-            // 
-            this.cmbStatusFilter.FormattingEnabled = true;
-            this.cmbStatusFilter.Location = new System.Drawing.Point(14, 63);
-            this.cmbStatusFilter.Name = "cmbStatusFilter";
-            this.cmbStatusFilter.Size = new System.Drawing.Size(156, 21);
-            this.cmbStatusFilter.TabIndex = 7;
-            this.cmbStatusFilter.SelectedIndexChanged += new System.EventHandler(this.cmbStatusFilter_SelectedIndexChanged);
-            // 
-            // cmbCustomerFilter
-            // 
-            this.cmbCustomerFilter.FormattingEnabled = true;
-            this.cmbCustomerFilter.Location = new System.Drawing.Point(330, 63);
-            this.cmbCustomerFilter.Name = "cmbCustomerFilter";
-            this.cmbCustomerFilter.Size = new System.Drawing.Size(156, 21);
-            this.cmbCustomerFilter.TabIndex = 7;
-            this.cmbCustomerFilter.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerFilter_SelectedIndexChanged);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(59, 42);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(43, 16);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "From";
-            this.label13.Click += new System.EventHandler(this.label13_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(391, 39);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(27, 16);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "To";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.cmbFromDate);
-            this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.cmbToDate);
-            this.panel1.Location = new System.Drawing.Point(413, 67);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(566, 100);
-            this.panel1.TabIndex = 9;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Bisque;
-            this.panel2.Controls.Add(this.cmbStatusFilter);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.cmbCustomerFilter);
-            this.panel2.Location = new System.Drawing.Point(413, 185);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(566, 114);
-            this.panel2.TabIndex = 10;
             // 
             // AddProduct
             // 
@@ -416,22 +301,33 @@
             this.AddProduct.UseVisualStyleBackColor = false;
             this.AddProduct.Click += new System.EventHandler(this.button2_Click_1);
             // 
-            // cmbUID
+            // cmbCustomerFilter
             // 
-            this.cmbUID.FormattingEnabled = true;
-            this.cmbUID.Location = new System.Drawing.Point(295, 150);
-            this.cmbUID.Name = "cmbUID";
-            this.cmbUID.Size = new System.Drawing.Size(93, 21);
-            this.cmbUID.TabIndex = 7;
+            this.cmbCustomerFilter.FormattingEnabled = true;
+            this.cmbCustomerFilter.Location = new System.Drawing.Point(413, 133);
+            this.cmbCustomerFilter.Name = "cmbCustomerFilter";
+            this.cmbCustomerFilter.Size = new System.Drawing.Size(156, 21);
+            this.cmbCustomerFilter.TabIndex = 7;
+            this.cmbCustomerFilter.SelectedIndexChanged += new System.EventHandler(this.cmbCustomerFilter_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(410, 104);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(134, 16);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Filter By Customer";
             // 
             // ManageJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 497);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.AddProduct);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.cmbCustomerFilter);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmdRequest);
             this.Controls.Add(this.button1);
@@ -442,11 +338,8 @@
             this.cmdRequest.ResumeLayout(false);
             this.cmdRequest.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -472,18 +365,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cmbFromDate;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cmbToDate;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cmbStatusFilter;
-        private System.Windows.Forms.ComboBox cmbCustomerFilter;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button AddProduct;
         private System.Windows.Forms.ComboBox cmbUID;
+        private System.Windows.Forms.ComboBox cmbCustomerFilter;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace EShift
 {
     public partial class AdminDashboard : Form
     {
+        MySqlConnection connection = DBConnection.getInstance().getConnection();
+
         public AdminDashboard()
         {
             InitializeComponent();
@@ -79,6 +82,52 @@ namespace EShift
             this.Hide();
             Login login = new Login();
             login.Show();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+            
+            if (connection != null)
+            {
+                connection.Close();
+            }
+
+            MySqlCommand cmd = new MySqlCommand("select COUNT(id) AS emps From employee", connection);
+            MySqlCommand cmd1 = new MySqlCommand("select COUNT(id) AS cus From customer", connection);
+            MySqlCommand cmd2 = new MySqlCommand("select COUNT(id) AS jobs From job", connection);
+
+            connection.Open();
+                           
+                MySqlDataReader reader = cmd.ExecuteReader();
+                
+               
+                Boolean b = reader.Read();               
+                String emps = reader["emps"].ToString();
+                reader.Close();
+            
+                MySqlDataReader reader1 = cmd1.ExecuteReader();
+                Boolean b3 = reader1.Read();
+                String cus = reader1["cus"].ToString();
+                reader1.Close();
+
+                 MySqlDataReader reader2 = cmd2.ExecuteReader();
+                 Boolean b2 = reader2.Read();
+                 String jobs = reader2["jobs"].ToString();
+             
+                connection.Close();
+                reader2.Close();
+
+            chart2.Series["jobsbarSeries"].Points.AddXY("Employees", Int16.Parse(emps));
+            chart2.Series["jobsbarSeries"].Points.AddXY("Customers", Int16.Parse(cus));
+            chart2.Series["jobsbarSeries"].Points.AddXY("Jobs", Int16.Parse(jobs));
+
+            chart1.Series["jobsPi"].Points.AddXY("Employees", Int16.Parse(emps));
+            chart1.Series["jobsPi"].Points.AddXY("Customers", Int16.Parse(cus));
+            chart1.Series["jobsPi"].Points.AddXY("Jobs", Int16.Parse(jobs));
         }
     }
 }

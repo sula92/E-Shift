@@ -87,12 +87,34 @@ namespace EShift
             {
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    if (txtProductName.Text == row.Cells["product_name"].Value.ToString())
+                    try
                     {
-                        MessageBox.Show("You cant duplicate the same product");
+                        if (txtProductName.Text == row.Cells["product_name"].Value.ToString())
+                        {
+                            MessageBox.Show("You cant duplicate the same product");
+                            return;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        connection.Open();
+                        MySqlCommand com1 = new MySqlCommand("insert into product (job_id,product_name,quantity) values ('" + txtJobID.Text + "','" + txtProductName.Text + "','" + txtQuantity.Text + "')", connection);
+                        int resIns = com1.ExecuteNonQuery();
+                        connection.Close();
+                        if (resIns == 1)
+                        {
+                            clearAll();
+                            loadTableDta();
+                            dataGridView1.Refresh();
+                            MessageBox.Show("Record Inserted Successfully...!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed To Inser The Record...!");
+                        }
+
                         return;
                     }
-
                 }
 
                 connection.Open();

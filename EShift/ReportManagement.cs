@@ -109,10 +109,10 @@ namespace EShift
             if (b)
             {
                 sql = "select * From job";
-            }
+            }    
             else
             {
-                sql = "select * From job  WHERE  `status`  = '" + cmbStatus.Text + "' AND  `customer_id`  = '" + cmbCustomer.Text + "' AND  `date`  = '" + dateTimePicker1.Text + "'";
+                sql = "select * From job  WHERE  `status`  = '" + cmbStatus.Text + "' AND  `customer_id`  = '" + cmbCustomer.Text + "'";
             }
            
             DataTable dtCustomer = new DataTable();
