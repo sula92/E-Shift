@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2022 at 05:49 PM
+-- Generation Time: Jul 24, 2022 at 10:49 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -38,7 +38,8 @@ CREATE TABLE `container` (
 
 INSERT INTO `container` (`id`, `max_weight`) VALUES
 ('CON001', '50KG'),
-('CON003', '78KG');
+('CON003', '45KG'),
+('CON004', '23Kg');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,7 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id`, `name`, `contact_number`, `email`, `position`) VALUES
-('EMP001', 'xxx', '1111111111', 'msm@gmail.com', 'Driver');
+('EMP002', 'vvv', '8888888889', 'bhh@gmail.com', 'driver');
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,7 @@ CREATE TABLE `job` (
 INSERT INTO `job` (`id`, `date`, `destination_address`, `starting_address`, `customer_id`, `unit_id`, `status`) VALUES
 ('J001', '2022-07-13', ',flf,fm', 'jfjjf', 'C001', 'U001', 'pending'),
 ('J002', '7/12/2022 7:11:58 PM', 'xxxxx', 'xxx', 'C001', 'U001', 'pending'),
-('J003', '7/18/2022 5:38:18 PM', 'mdmf', 'kvkv', 'C001', 'U001', 'pending');
+('J003', '7/18/2022 5:38:18 PM', 'mdmf', 'kvkv', 'C001', 'U001', 'completed');
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,9 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`job_id`, `product_name`, `quantity`) VALUES
 ('J002', 'b b ', 10),
-('J002', 'TV', 9);
+('J002', 'nhjl', 2),
+('J002', 'TV', 10),
+('J002', 'xxx', 6);
 
 -- --------------------------------------------------------
 
@@ -215,6 +218,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`userId`, `user_name`, `privilege`, `password`) VALUES
 ('C001', 'cus', 'customer', 'cus'),
+('C005', 'vgb', 'customer', 'gjgj'),
 ('EMP001', 'admin', 'admin', 'admin');
 
 --
